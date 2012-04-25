@@ -102,7 +102,7 @@ class TwitterBootstrapFormFor::FormBuilder < ActionView::Helpers::FormBuilder
       classes << ('input-' + add_on) if add_on
 
       self.div_wrapper(attribute) do
-        template.concat self.label(attribute, label) if label
+        template.concat self.label(attribute, label, :class => 'control-label') if label
         template.concat template.content_tag(:div, :class => classes.join(' ')) {
           block.call if block.present? && add_on == 'prepend'
           template.concat super(attribute, *(args << options))
